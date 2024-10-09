@@ -1,0 +1,67 @@
+
+
+package com.company;
+import java.util.*;
+// Number Game.
+public class Task1 {
+    public static void main(String args[]) {
+            Scanner gnum = new Scanner(System.in);
+            //  Scanner sc = new Scanner(System.in);
+            Random rnum = new Random();
+            char choice;
+            do{
+                int maxattempt = 5;
+                int attempt = 0;
+                int guessnum = 0;
+
+                System.out.println("Welcome to numbergame program..!!");
+                System.out.println("Please select the number between the 1 To 100.");
+                int randomnum = rnum.nextInt(100)+1;
+                while (attempt < maxattempt && guessnum != randomnum) {
+                    System.out.println("Enter ur guess num:");
+                    guessnum = gnum.nextInt();
+                    attempt++;
+
+
+                    if (guessnum < randomnum) {
+                        System.out.println("ur guess num is low.");
+                    }
+                    else if (guessnum > randomnum) {
+                        System.out.println("ur guess num is high.");
+                    }
+                    else  {
+                        System.out.println("ur choice is correct.");
+                        if(attempt == 1){
+                            System.out.println("Your Score is 5.");
+                        }
+                        else if (attempt == 2){
+                            System.out.println("Your Score is 4.");
+                        }
+                        else if (attempt == 3){
+                            System.out.println("Your Score is 3.");
+                        }
+                        else if (attempt == 4){
+                            System.out.println("Your Score is 2.");
+                        }
+                        else if (attempt == 5){
+                            System.out.println("Your Score is 1.");
+                        }
+
+
+                    }
+
+                    if(attempt == maxattempt){
+                        System.out.println("Sorry..Your attempts are finish!!");
+                        System.out.println("And ur random num are: "+ randomnum);
+                    }
+
+                }
+                System.out.println("do u play this game again.(Y | N)");
+                choice = gnum.next().charAt(0);
+            } while (choice == 'Y' || choice =='y');
+
+
+        }
+
+
+    }
